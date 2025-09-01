@@ -32,7 +32,7 @@ export default function LoginForm() {
         fetchOptions: {
           onSuccess: () => {
             toast.success("Sent email with verification code.");
-            router.push(`/verify-request`);
+            router.push(`/verify-request?email=${email}`);
           },
 
           onError: () => {
