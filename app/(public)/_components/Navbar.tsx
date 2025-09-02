@@ -6,6 +6,7 @@ import Logo from "@/public/logo.svg";
 import { ModeToggle } from "@/components/ui/theme-toggle";
 import { authClient } from "@/lib/auth-client";
 import { buttonVariants } from "@/components/ui/button";
+import UserDropdown from "./UserDropdown";
 
 const navigationItems = [
   {
@@ -50,7 +51,11 @@ const Navbar = () => {
           <div className="flex items-center justify-center space-x-4">
             <ModeToggle />
             {isPending ? null : session ? (
-              <p>Logged in</p>
+              <UserDropdown
+                name={session.user.name}
+                email={session.user.email}
+                image={session.user.image ?? undefined}
+              />
             ) : (
               <>
                 <Link
